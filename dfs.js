@@ -1,16 +1,13 @@
 const dfs = (tree) => {
   const result = [];
+  const stack = [tree];
 
-  const iter = (el) => {
+  while (stack.length > 0) {
+    const el = stack.pop();
     result.push(el.value);
-    if (el.children) {
-      for (const child of el.children) {
-        iter(child);
-      }
-    }
-  };
+    el.children && stack.push(...el.children.reverse());
+  }
 
-  iter(tree);
   return result;
 };
 
