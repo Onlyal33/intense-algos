@@ -1,4 +1,4 @@
-const data = '(1{[123]})()';
+const data = '(1{[123]})()(';
 
 const pairs = {
   ')': '(',
@@ -8,11 +8,8 @@ const pairs = {
 
 const isBracketsBalanced = (str) => {
   const stack = [];
-  const arr = str.split('');
 
-  while (arr.length > 0) {
-    const sym = arr.shift();
-
+  for (const sym of str) {
     if (sym === '(' || sym === '{' || sym === '[') {
       stack.push(sym);
     }
