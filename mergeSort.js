@@ -14,11 +14,27 @@ const mergeSort = (arr) => {
     arr2 = mergeSort(arr2);
   }
 
-  while (arr1.length > 0 && arr2.length > 0) {
-    result.push(arr1[0] < arr2[0] ? arr1.shift() : arr2.shift());
+  let i = 0;
+  let j = 0;
+  while (i < arr1.length && j < arr2.length) {
+    if (arr1[i] < arr2[j]) {
+      result.push(arr1[i]);
+      i++;
+    } else {
+      result.push(arr2[j]);
+      j++;
+    }
   }
 
-  result.push(...arr1, ...arr2);
+  while (i < arr1.length) {
+    result.push(arr1[i]);
+    i++;
+  }
+
+  while (j < arr2.length) {
+    result.push(arr2[j]);
+    j++;
+  }
 
   return result;
 };
