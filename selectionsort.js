@@ -7,8 +7,8 @@ const solution = (arr) => {
       if (arr[j] > arr[j + 1]) {
         minId = j + 1;
       }
-      [arr[i], arr[minId]] = [arr[minId], arr[i]];
     }
+    [arr[i], arr[minId]] = [arr[minId], arr[i]];
   }
 };
 solution(data);
